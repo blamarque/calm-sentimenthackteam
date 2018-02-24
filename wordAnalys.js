@@ -5,6 +5,7 @@ var env = require(__base +'env');
 	var wordAnalysis = {};
 
 
+    
 	module.exports = wordAnalysis;
 
 } ());
