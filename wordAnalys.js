@@ -2,7 +2,7 @@ var env = require(__base +'env');
 
 (function () {
 
-	var wordAnalysis = {};
+	var wordAnalysis = {@};
 
 
     
