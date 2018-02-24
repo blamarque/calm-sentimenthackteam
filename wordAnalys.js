@@ -1,11 +1,11 @@
-var env = require(__base +'env');
+// var env = require(__base +'env');
 
-(function () {
+// (function () {
 
-	var wordAnalysis = {@};
+// 	var wordAnalysis = {@};
 
 
     
-	module.exports = wordAnalysis;
+// 	module.exports = wordAnalysis;
 
-} ());
+// } ());
