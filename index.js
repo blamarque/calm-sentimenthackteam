@@ -6,6 +6,9 @@ var configurationReader = require(__base + 'RessourceConfigurationReader');
 var ruleService = require(__base + 'Rules');
 
 
+
+sentiment.callEmotionSentence('I am feeling low');
+
 (function () {
 
     var sentimentResponse = {};
@@ -19,24 +22,28 @@ var ruleService = require(__base + 'Rules');
         });
     }
 
-    sentimentResponse.analyse = function (speech, callback) {
+    sentimentResponse.analyse = function (speech) {
 
         console.log("Analyse" + speech);
 
-        sentiment.
-        bestResourceSelection();
-
-        var response = {
-            status :"ok",
-            data:{
-                resources:[{
-                    name:sentimentResponse.ressources[0].name, 
-                    description:sentimentResponse.ressources[0].description,
-                    type:sentimentResponse.ressources[0].type
-                }] 
+        var promise  = new Promise(function(resolve, reject) {
+            
+            var response = {
+                status :"ok",
+                data:{
+                    resources:[{
+                        name:sentimentResponse.ressources[0].name,
+                        description:sentimentResponse.ressources[0].description,
+                        type:sentimentResponse.ressources[0].type
+                    }]
+                }
             }
-        }
-        callback(response)
+
+            resolve(response);
+        });
+
+        return promise;
+
     }
 
     //select best ressource response

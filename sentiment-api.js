@@ -1,57 +1,37 @@
-
-
-var http = require('http'),
-  async = require('async'),
-   _ = require("underscore");
-
-var usr ='';
-var pwd ='';
-var baseURL ='/v1';
-var endPointEmotion = baseURL + '/emotion';
-
-var reqOpts = {
-  headers: { 
-    'Accept': 'application/json', 
-    'Authorization': 'Basic ' + new Buffer(usr + ':' + pwd).toString('base64'), 
-    'Content-Type': 'application/json' 
-  },  
-  hostname: 'api.theysay.io',
-  method: 'POST',
-  port: 4000
-};
+var axios = require('axios');
+var env = require('./env');
 
 module.exports = {
 
-
 	callEmotionSentence: function(text) {
-	  reqOpts.path = endPointEmotion;
-	  var reqBody = JSON.stringify({ text: text, level: "sentence" });
+    // Look for req.text
+    var usr = "8b081307-3f14-4268-81f7-e23e0f517e72";
+    var pwd = "3ZdWHOrjZ3wh";
+    var options = {
+        uri: 'https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone',
+        json: true
+    };
 
-	  analyse(reqOpts, reqBody, function(analysis) { affectr.outputEmotionSentence(analysis, text); });
+    return axios.get("https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone",
+    {
+      params: {
+        version: "2016-05-19",
+        text: text
+      },
+      headers: {
+        'User-Agent': 'Request-Promise',
+        'Accept': 'application/json',
+        'Authorization': 'Basic ' + new Buffer(env.user + ':' + env.password).toString('base64'),
+        'Content-Type': 'application/json'
+      }
+    })
+        .then(function (response) {
+          console.log(response);
+          return response;
+        })
+        .catch(function (err) {
+            console.log("ERROR " + err.message);
+            return err;
+        });
 	}
-
-}
-
-function analyse(reqOpts, reqBody, callback) {
-  var buffer = '';
-
-  var req = http.request(reqOpts, function(res) {
-    res.setEncoding('utf8');
-
-    res.on('data', function (d) { buffer += d; });
-
-    res.on('end', function() { 
-      var analysis = JSON.parse(buffer);
-
-      if (_.isUndefined(analysis.errors)) callback(analysis); 
-      else console.log(analysis.errors);
-    });
-  });
-
-  req.on('error', function(e) { console.log('Dodgy request: ' + e.message); });
-
-  req.write(reqBody);
-  console.log("reached analyse function");
-
-  req.end();
 }
