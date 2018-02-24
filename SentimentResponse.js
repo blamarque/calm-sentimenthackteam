@@ -28,17 +28,19 @@ var ruleService = require(__base + 'Rules');
 
         }
 
-        callback({})
+        var response = {
+            status :"ok",
+            data:{
+                resources:[{
+                    name:sentimentResponse.ressources[0].name, 
+                    description:sentimentResponse.ressources[0].description,
+                    type:sentimentResponse.ressources[0].type
+                }] 
+            }
+        }
+        callback(response)
     }
 
     module.exports = sentimentResponse;
 
 }());
-
-
-
-
-
-
-
-

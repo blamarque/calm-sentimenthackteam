@@ -29,12 +29,16 @@ var ruleService = require(__base + 'Rules');
         }
 
         var response = {
-            status :"ok"
+            status :"ok",
             data:{
-                response:{resources:["http://google.com","otherstuff"] }
+                resources:[{
+                    name:sentimentResponse.ressources[0].name, 
+                    description:sentimentResponse.ressources[0].description,
+                    type:sentimentResponse.ressources[0].type
+                }] 
             }
         }
-        callback({"status":})
+        callback(response)
     }
 
     module.exports = sentimentResponse;
