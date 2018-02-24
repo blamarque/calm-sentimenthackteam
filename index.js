@@ -23,10 +23,8 @@ var ruleService = require(__base + 'Rules');
 
         console.log("Analyse" + speech);
 
-        
-        if (sentimentResponse.ressources[0].rules.openingTimeRule[0].apply("now")) {
-
-        }
+        sentiment.
+        bestResourceSelection();
 
         var response = {
             status :"ok",
@@ -39,6 +37,21 @@ var ruleService = require(__base + 'Rules');
             }
         }
         callback(response)
+    }
+
+    //select best ressource response
+    sentimentResponse.bestResourceSelection = function (fact) {
+          
+        var selections = sentimentResponse.ressources.filter(element => {
+
+            if (element.rules.openingTimeRule[0].apply("now")) {
+
+            }
+
+        });
+
+        return selections;
+
     }
 
     module.exports = sentimentResponse;

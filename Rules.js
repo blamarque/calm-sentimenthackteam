@@ -94,10 +94,6 @@ function Rule() {
 
 		severityRule.apply = function (fact, callback) {
 
-
-
-            
-
 		};
 
 		return severity;
