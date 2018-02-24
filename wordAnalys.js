@@ -3,12 +3,8 @@
  (function () {
 
 
-
 	var wordAnalysis = {};
 
-
-
-    
  	module.exports = wordAnalysis;
 
  } ());

@@ -22,6 +22,8 @@ var ruleService = require(__base + 'Rules');
     sentimentResponse.analyse = function (speech, callback) {
 
         console.log("Analyse" + speech);
+
+        
         if (sentimentResponse.ressources[0].rules.openingTimeRule[0].apply("now")) {
 
         }
