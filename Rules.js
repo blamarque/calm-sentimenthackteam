@@ -48,26 +48,40 @@ function Rule() {
     rule.openingTimeRule = function (rule) {
 
 		var openingTimeRule = {};
-		openingTimeRule.id = rule.id;
+		
+		console.log("RULE "+JSON.stringify(rule))
 		openingTimeRule.__proto__ = Rule();
-		openingTimeRule.strategy = rule.strategy == "gt" ? 1 : 0;
+		openingTimeRule.days = rule;
+
+		openingTimeRule.weekday = new Array(7);
+		openingTimeRule.weekday[0] = "Sunday";
+		openingTimeRule.weekday[1] = "Monday";
+		openingTimeRule.weekday[2] = "Tuesday";
+		openingTimeRule.weekday[3] = "Wednesday";
+		openingTimeRule.weekday[4] = "Thursday";
+		openingTimeRule.weekday[5] = "Friday";
+		openingTimeRule.weekday[6] = "Saturday";
 
 		openingTimeRule.apply = function (fact, callback) {
 
-			if (typeof fact == "undefined") {
+			console.log("in opening time");
+
+			var d = new Date();
+			var n = openingTimeRule.weekday[d.getDay()];
+			console.log(n);
+
+			var openingHours = openingTimeRule.days[n];
+
+			if(typeof openingHours == "undefined"){
+				console.log("return 0");
 				return 0;
 			}
 
-			if (typeof fact.build == "undefined") {
-				return 0;
-			}
-
-			if (fact.build > buildRule.id) return rule.strategy ? callback(buildRule.next, fact) : 0;
-			if (fact.build < buildRule.id) return rule.strategy ? 0 : callback(buildRule.next, fact);
+			console.log("return 1 "+openingHours);
 
 		};
 
-		return buildRule;
+		return openingTimeRule;
 
     };
     
@@ -77,23 +91,16 @@ function Rule() {
 		var severityRule = {};
 		severityRule.id = rule.id;
 		severityRule.__proto__ = Rule();
-		severityRule.strategy = rule.strategy == "gt" ? 1 : 0;
 
-		openingTimeRule.apply = function (fact, callback) {
+		severityRule.apply = function (fact, callback) {
 
-			if (typeof fact == "undefined") {
-				return 0;
-			}
 
-			if (typeof fact.build == "undefined") {
-				return 0;
-			}
 
             
 
 		};
 
-		return buildRule;
+		return severity;
 
 	};
 

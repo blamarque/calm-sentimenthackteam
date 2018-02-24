@@ -1,0 +1,17 @@
+[
+    {
+        "Name": "OCD Action",
+        "Description": "Support for people with obsessive compulsive disorder (OCD). Includes information on treatment and online resources.",
+        "Type": "Phone",
+        "Days": {
+            "Monday": "9:30-17",
+            "Tuesday": "9:30-17",
+            "Wednesday": "9:30-17",
+            "Thurday": "9:30-17",
+            "Friday": "9:30-17"
+        },
+        "Resource": "0845 390 6232",
+        "Keywords": [],
+        "Sentiment": []
+    }
+]
