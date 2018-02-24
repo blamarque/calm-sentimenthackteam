@@ -6,7 +6,7 @@ var sentimentResponse = require(__base + 'index');
 
 sentimentResponse.load(function(){
     console.log("done");
-    sentimentResponse.analyse("wqdqwdqwdqwdqwd",function(response){
-        console.log("analysed "+JSON.stringify(response)); 
+    sentimentResponse.analyse("I feel incredibly sad",function(response){
+        console.log("analysed "+JSON.stringify(response));
     });
 })

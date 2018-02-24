@@ -26,8 +26,8 @@ module.exports = {
       }
     })
         .then(function (response) {
-          console.log(response);
-          return response;
+          console.log(response.data.document_tone.tone_categories[0].tones);
+          return response.data.document_tone.tone_categories[0].tones;
         })
         .catch(function (err) {
             console.log("ERROR " + err.message);

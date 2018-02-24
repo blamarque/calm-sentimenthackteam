@@ -5,10 +5,6 @@ var sentiment = require('./sentiment-api.js');
 var configurationReader = require(__base + 'RessourceConfigurationReader');
 var ruleService = require(__base + 'Rules');
 
-
-
-sentiment.callEmotionSentence('I am feeling low');
-
 (function () {
 
     var sentimentResponse = {};
@@ -26,7 +22,8 @@ sentiment.callEmotionSentence('I am feeling low');
 
         console.log("Analyse" + speech);
 
-
+        sentiment.callEmotionSentence(speech);
+        
         if (sentimentResponse.ressources[0].rules.openingTimeRule[0].apply("now")) {
 
         }
