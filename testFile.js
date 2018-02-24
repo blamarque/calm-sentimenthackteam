@@ -2,7 +2,7 @@
 
 global.__base = __dirname + '/';
 
-var sentimentResponse = require(__base + 'SentimentResponse');
+var sentimentResponse = require(__base + 'index');
 
 sentimentResponse.load(function(){
     console.log("done");
