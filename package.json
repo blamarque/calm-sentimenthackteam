@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/blamarque/calm-sentimenthackteam/issues"
   },
-  "homepage": "https://github.com/blamarque/calm-sentimenthackteam#readme"
+  "homepage": "https://github.com/blamarque/calm-sentimenthackteam#readme",
+  "dependencies": {
+    "fs": "0.0.1-security"
+  }
 }

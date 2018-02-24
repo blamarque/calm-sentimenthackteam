@@ -48,9 +48,7 @@ function Rule() {
     rule.openingTimeRule = function (rule) {
 
 		var openingTimeRule = {};
-		openingTimeRule.id = rule.id;
 		openingTimeRule.__proto__ = Rule();
-		openingTimeRule.strategy = rule.strategy == "gt" ? 1 : 0;
 
 		openingTimeRule.apply = function (fact, callback) {
 
@@ -62,12 +60,9 @@ function Rule() {
 				return 0;
 			}
 
-			if (fact.build > buildRule.id) return rule.strategy ? callback(buildRule.next, fact) : 0;
-			if (fact.build < buildRule.id) return rule.strategy ? 0 : callback(buildRule.next, fact);
-
 		};
 
-		return buildRule;
+		return openingTimeRule;
 
     };
     
@@ -79,7 +74,7 @@ function Rule() {
 		severityRule.__proto__ = Rule();
 		severityRule.strategy = rule.strategy == "gt" ? 1 : 0;
 
-		openingTimeRule.apply = function (fact, callback) {
+		severityRule.apply = function (fact, callback) {
 
 			if (typeof fact == "undefined") {
 				return 0;
@@ -93,7 +88,7 @@ function Rule() {
 
 		};
 
-		return buildRule;
+		return severity;
 
 	};
 
