@@ -3,7 +3,7 @@ var env = require('./env');
 
 module.exports = {
 
-	callEmotionSentence: function(text) {
+	callEmotionSentence: function(text, callback) {
     // Look for req.text
     var usr = "8b081307-3f14-4268-81f7-e23e0f517e72";
     var pwd = "3ZdWHOrjZ3wh";
