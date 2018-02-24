@@ -1,18 +1,5 @@
 global.__base = __dirname + '/';
 
-/*
-var sentimentResponse = require(__base + 'SentimentResponse');
-
-sentimentResponse.load(function(){
-    console.log("done");
-    sentimentResponse.analyse("wqdqwdqwdqwdqwd",function(){
-        console.log("analysed"); 
-    });
-})*/
-
-
-global.__base = __dirname + '/';
-
 var wordService = require(__base + 'wordAnalys');
 var sentiment = require('./sentiment-api.js');
 var configurationReader = require(__base + 'RessourceConfigurationReader');
@@ -41,7 +28,13 @@ var ruleService = require(__base + 'Rules');
 
         }
 
-        callback({})
+        var response = {
+            status :"ok"
+            data:{
+                response:{resources:["http://google.com","otherstuff"] }
+            }
+        }
+        callback({"status":})
     }
 
     module.exports = sentimentResponse;
