@@ -1,16 +1,21 @@
 global.__base = __dirname + '/';
 
-<<<<<<< HEAD
-var wordService = require(__base + 'WordAnalys');
-var configurationReader =  require(__base + 'RessourceConfigurationReader');
-
-console.log("Hello World");
-configurationReader.read();
-=======
 var wordService = require(__base + 'wordAnalys');
 var sentiment = require('./sentiment-api.js');
+var configurationReader = require(__base + 'RessourceConfigurationReader');
+var ruleService = require(__base + 'Rules');
 
 console.log("Hello World");
-console.log(sentiment);
-sentiment.callEmotionSentence('I am feeling low');
->>>>>>> 734c1a2f7772751128cd29eae20ef4112070c603
+//console.log(sentiment);
+var ressourcesConfiguration = configurationReader.read({}, function(ressourcesConfiguration){
+
+    console.log("Hello World " + JSON.stringify(ressourcesConfiguration));
+    if(ressourcesConfiguration[0].rules.openingTimeRule[0].apply("now")) {
+
+    }
+});
+
+
+
+
+//sentiment.callEmotionSentence('I am feeling low');

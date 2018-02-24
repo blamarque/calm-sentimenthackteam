@@ -21,11 +21,8 @@
   },
   "homepage": "https://github.com/blamarque/calm-sentimenthackteam#readme",
   "dependencies": {
-<<<<<<< HEAD
-    "fs": "0.0.1-security"
-=======
+    "fs": "0.0.1-security",
     "async": "^2.6.0",
     "underscore": "^1.8.3"
->>>>>>> 734c1a2f7772751128cd29eae20ef4112070c603
   }
 }
