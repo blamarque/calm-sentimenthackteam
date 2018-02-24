@@ -5,10 +5,6 @@ var sentiment = require('./sentiment-api.js');
 var configurationReader = require(__base + 'RessourceConfigurationReader');
 var ruleService = require(__base + 'Rules');
 
-
-
-sentiment.callEmotionSentence('I am feeling low');
-
 (function () {
 
     var sentimentResponse = {};
@@ -28,6 +24,8 @@ sentiment.callEmotionSentence('I am feeling low');
 
         var promise  = new Promise(function(resolve, reject) {
             
+            sentiment.callEmotionSentence(speech);
+
             var response = {
                 status :"ok",
                 data:{
