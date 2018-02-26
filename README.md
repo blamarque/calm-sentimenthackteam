@@ -7,6 +7,7 @@ This was created during the Speak out calm day.
 It is currently using 2 methods to build the mental representation:
 
 1) A language analyse as describe here: http://journals.sagepub.com/doi/pdf/10.1177/2167702617747074
+
 2)An API call to a 3th party.
 
 This is far far far far away to be completed.
